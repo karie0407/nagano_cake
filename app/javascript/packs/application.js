@@ -8,6 +8,24 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application" 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+const webpack = require('webpack')
+
+const { environment } = require('@rails/webpacker')
+
+const webpack = require('webpack')
+environment.plugins.append('Provide', new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+}))
+
+module.exports = environment
+require("bootstrap/dist/js/bootstrap")
