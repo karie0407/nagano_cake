@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
     root to:'homes#top'
-    resources :genres,only: [:new, :index, :edit]
+    resources :genres,only: [:new, :index, :edit, :create, :update]
     resources :items,only: [:index, :new, :create, :show, :edit, :update]
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders,only: [:show]
