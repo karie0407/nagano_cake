@@ -6,10 +6,13 @@
 <%= f.text_field :name %>
 <p>商品説明</p>
 <%= f.text_area :introduction %>
-<p>ジャンル</p>
+<p>ジャンル <%=f.select :genre_id,options_from_collection_for_select(Genre.all,:id, :name) %>
 <p>税抜価格</p>
 <%= f.text_field :price %>円
-<p>販売ステータス</p>
+<p>販売ステータス　<%= f.radio_button :is_active,"sale" %>
+<%= f.label :is_active, "販売中" %>
+<%= f.radio_button :is_active, "stopselling" %>
+<%= f.label :is_active, "販売停止中" %></p>
 
  <%= f.submit '新規登録' %>
 

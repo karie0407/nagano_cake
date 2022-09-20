@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
   namespace :admin do
     root to:'homes#top'
     resources :genres,only: [:new, :index, :edit, :create, :update]
