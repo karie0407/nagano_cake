@@ -11,8 +11,4 @@ def get_image(width, height)
 end
 enum is_active: { sale: true, stopselling: false }
 
-def with_tax_price
-    (price * 1.1).floor
-end
-
 end
