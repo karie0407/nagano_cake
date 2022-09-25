@@ -8,7 +8,7 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_items_path
   end
   def index
-  @items= Item.all
+  @items= Item.page(params[:page]).per(10)
   end
   def show
   @item = Item.find(params[:id])
