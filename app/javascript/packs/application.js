@@ -12,6 +12,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application" 
+import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()
@@ -20,7 +21,6 @@ const webpack = require('webpack')
 
 const { environment } = require('@rails/webpacker')
 
-const webpack = require('webpack')
 environment.plugins.append('Provide', new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',

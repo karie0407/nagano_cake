@@ -4,8 +4,3 @@
         is_active:
           sale: "販売中"
           stopselling: "販売停止中"
-  
-    devise:
-      admin:
-        sessons:
-          log in:"管理者ログイン"
