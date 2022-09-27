@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>NaganoCake</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= favicon_link_tag "24738294_s.jpg" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,48 +9,23 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand p-3" href="/"><%= image_tag('24738294_s.jpg') %></a>
-        <% if admin_signed_in? %>
-          <%= link_to  admin_orders_path,class:"header-title navbar-brand" do %>
-          <% end %>
-        <% else %>
-          <%= link_to  admin_root_path,class:"header-title navbar-brand" do %>
-          <% end %>
-        <% end %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-            <% if admin_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-outline-secondary mx-3 my-1' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to '注文一覧', admin_order_path, class: 'btn btn-outline-secondary mx-3 my-1' %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to "商品一覧", admin_items_path, class: 'btn btn-outline-secondary mx-3 my-1' %>
-            </li>
-            <li class= "nav-item">
-            
-            </li>
-            <% end %>
-            </ul>
-          </div>
-        
-      </nav>
-    </header>
-  <main>
 
-  </main>
+  <body>
+  <header>
+    <% if admin_signed_in? %>
+    <li>
+    <%= link_to "ログアウト",destroy_admin_session_path, method: :delete,class: 'btn btn-outline-secondary mx-3 my-1'%>
+    </li>
+    <% else %>
+      <li>
+        <%= link_to "ログイン", admin_root_path %>
+      </li>
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
   <footer>
-  <p class="text-center">© 2021 04~ PandaMaguro</p>
+  <p class="text-center">© 2022 09 nagano cake</p>
   <div class="d-flex justify-content-center">
     <a href="#" class="mx-1 text-dark"><i class="fab fa-twitter fa-2x"></i></a>
     <a href="#" class="mx-5 text-dark"><i class="fab fa-instagram fa-2x"></i></a>
