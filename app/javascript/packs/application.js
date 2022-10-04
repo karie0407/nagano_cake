@@ -11,21 +11,9 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application" 
+import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-const webpack = require('webpack')
-
-const { environment } = require('@rails/webpacker')
-
-environment.plugins.append('Provide', new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    Popper: ['popper.js', 'default']
-}))
-
-module.exports = environment
-require("bootstrap/dist/js/bootstrap")
