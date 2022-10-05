@@ -15,7 +15,9 @@
     <a class="navbar-brand p-3" href="/"><%= image_tag('24738294_s.jpg') %></a>
     <% if admin_signed_in? %>
     <li>
-      <%= link_to "商品一覧",admin_items_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
+      <%= link_to admin_items_path,class: 'btn btn-outline-secondary mx-3 my-1' do %>
+      <i class="fa fa-shopping-bag"><span class="font">商品一覧</span></i>
+      <% end %>
       <%= link_to "会員一覧",admin_customers_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
       <%= link_to "注文履歴一覧",admin_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
       <%= link_to "ジャンル一覧",admin_genres_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
@@ -31,6 +33,7 @@
   </header>
   <%= yield %>
 </body>
+  <main></main>
   <footer>
   <p class="text-center">© 2022 09 nagano cake</p>
 </footer>
