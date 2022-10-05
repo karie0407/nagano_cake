@@ -12,10 +12,13 @@ Rails.application.routes.draw do
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders,only: [:show]
     resources :order_details,only: [:update]
+
+  end
+  scope module: :public do
+  root to: "homes#top"
+  end
+  scope module: :admin do
+  get '/admin' => 'homes#top'
   end
 
-  root to: "homes#top"
-  get "/home/about"=>"home#about",as:"about"
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
