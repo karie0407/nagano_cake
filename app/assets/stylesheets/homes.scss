@@ -1,3 +1,31 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//------home--------//
+
+.mv-title {
+    font-family: 'Hina Mincho', serif;
+    font-weight: bold;
+    color : black;
+    margin-bottom: 10px;
+  }
+  .mv-text {
+    color : black;
+    margin-top: 40px;
+  }
+}
+
+
+//-------about--------//
+.about-title {
+
+}
+.about-content {
+  text-align: center;
+}
+.about-image {
+  height: 450px;
+  width: 60%;
+  background-image: url(24436284_s.jpg)
+  // background-size: cover;
+}
