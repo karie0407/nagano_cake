@@ -13,6 +13,14 @@
   <body>
   <header class=="shadow-sm">
     <a class="navbar-brand p-3" href="/"><%= image_tag('24738294_s.jpg') %></a>
+    <!--顧客用ログイン-->
+    <%if customer_signed_in? %>
+    マイページ
+    商品一覧
+    カート
+    <%= link_to "ログアウト",destroy_customer_session_path, method: :delete,class: 'btn btn-outline-secondary mx-3 my-1'%>
+    <% end %>
+    <!--管理用ログイン-->
     <% if admin_signed_in? %>
     <li>
       <%= link_to admin_items_path,class: 'btn btn-outline-secondary mx-3 my-1' do %>
