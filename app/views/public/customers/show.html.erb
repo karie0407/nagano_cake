@@ -1,0 +1,43 @@
+<h4 class="head-line title_h4 text-center">マイページ</h4>
+<h4>登録情報</h4>
+<%=link_to "編集する", customers_information_edit_path %>
+<table class="my-page-table table">
+  <tbody>
+    <tr>
+      <td class="active col-xs-3">氏名</td>
+      <td><%= @customer.last_name + @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td class="active">カナ</td>
+      <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="active">郵便番号</td>
+      <td><%= @customer.postal_code %></td>
+    </tr>
+    <tr>
+      <td class="active">住所</td>
+      <td><%= @customer.address %></td>
+    </tr>
+    <tr>
+      <td class="active">電話番号</td>
+      <td><%= @customer.telephone_number %></td>
+    </tr>
+    <tr>
+      <td class="active">メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <b>配送先</b>
+</div>
+<div>
+配送先一覧リンク　一覧を見る
+</div>
+<div>
+  <b>注文履歴</b>
+</div>
+<div>
+  注文履歴一覧リンク　一覧を見る
+</div>
