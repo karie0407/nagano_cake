@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  namespace :public do
+  # namespace :public do
     resources :orders,only: [:new, :index, :show]
-  end
+    resources :addresses, only: [:index, :edit, :update, :destroy]
+  # end
   devise_for :customers, skip: [:passwords],controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
   scope module: :public do
   root to: "homes#top"
   get "/homes/about"=>"homes#about",as:"about"
+  get '/customers/my_page' => "customers#show"
+  get '/customers/information/edit' => "customers#edit"
+  patch '/customers/information' => "customers#update"
+  get '/customers/unsubscribe' => "customers#unsubscribe"
+  patch '/customers/withdraw' => "customers#withdraw"
   end
   scope module: :admin do
   get '/admin' => 'homes#top'
