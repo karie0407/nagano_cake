@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # namespace :public do
     resources :orders,only: [:new, :index, :show]
-    resources :addresses, only: [:index, :edit, :update, :destroy]
   # end
   devise_for :customers, skip: [:passwords],controllers: {
   registrations: "public/registrations",
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   patch '/customers/information' => "customers#update"
   get '/customers/unsubscribe' => "customers#unsubscribe"
   patch '/customers/withdraw' => "customers#withdraw"
+  resources :addresses, only: [:create, :index, :edit, :update, :destroy]
+
   end
   scope module: :admin do
   get '/admin' => 'homes#top'
