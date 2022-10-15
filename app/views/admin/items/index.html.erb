@@ -3,7 +3,10 @@
 <% @items.each do |item| %>
 <div>
   <p>商品ID　<%= item.id %></p>
-  <p>商品名　<%= item.name %></p>
+  <p>商品名
+<%= link_to admin_item_path(item.id) do %>
+<%= item.name %>
+<% end %></p>
   <p>税抜価格　<%= item.price %>円</p>
   <p>ジャンル　<%= item.genre.name %></p>
   <p>ステータス　<%= item.is_active_i18n %></p>

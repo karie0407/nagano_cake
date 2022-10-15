@@ -5,7 +5,7 @@
 <p>ステータス</p>
 <% @customers.each do |customer| %>
 <%= customer.id %>
-<%= customer.name %>
+<%= customer.last_name+customer.first_name %>
 <td><%= link_to admin_customer_path(customer.id) do %></td>
 <% end %>
 <%= customer.email %>

@@ -1,0 +1,9 @@
+<h4>商品一覧(全<%=@items.count %>件)</h4>
+<% @items.each do |item| %>
+<%= link_to item_path(item.id) do %>
+<%= image_tag item.get_image(300,300) %>
+<% end %>
+<%= item.name %>
+¥<%= (item.price * 1.1).floor %>
+<% end %>
+<%= paginate @items %>
