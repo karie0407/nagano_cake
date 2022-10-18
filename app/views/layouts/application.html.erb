@@ -13,27 +13,33 @@
   <body>
   <header class=="shadow-sm">
     <a class="navbar-brand p-3" href="/"><%= image_tag('24738294_s.jpg') %></a>
+    <% if customer_signed_in? %>
+      <ul class="nav col-lg-auto my-2  my-md-0">
+          <li class="welcome">ようこそ、<%= current_customer.last_name %>さん！</li>
+       </ul>
+    <% end %>
+    <ul class="nav col-6 col-sm-3 col-lg-auto my-2 justify-content-center my-md-0">
     <!--顧客用ログイン-->
     <%if customer_signed_in? %>
-    マイページ
-    商品一覧
-    カート
+    <%= link_to "マイページ",customers_my_page_path,class: "btn btn-outline-secondary mx-3 my-1" %>
+    <%= link_to "商品一覧", items_path,class: "btn btn-outline-secondary mx-3 my-1" %>
+    <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary mx-3 my-1" %>
     <%= link_to "ログアウト",destroy_customer_session_path, method: :delete,class: 'btn btn-outline-secondary mx-3 my-1'%>
-    <% end %>
     <!--管理用ログイン-->
-    <% if admin_signed_in? %>
+    <% elsif admin_signed_in? %>
     <li>
       <%= link_to "商品一覧",admin_items_path,class: 'btn btn-outline-secondary mx-3 my-1' %>
       <%= link_to "会員一覧",admin_customers_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
       <%= link_to "注文履歴一覧",admin_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
       <%= link_to "ジャンル一覧",admin_genres_path,class: 'btn btn-outline-secondary mx-3 my-1'%>
-    <%= link_to "ログアウト",destroy_admin_session_path, method: :delete,class: 'btn btn-outline-secondary mx-3 my-1'%>
+      <%= link_to "ログアウト",destroy_admin_session_path, method: :delete,class: 'btn btn-outline-secondary mx-3 my-1'%>
+    </li>
     <% else %>
       <li>
-　　　　アバウト
-　　　　商品一覧
-　　　　新規登録
-        <%= link_to "ログイン", new_admin_session_path,class: 'btn btn-outline-secondary mx-3 my-1' %>
+　　　　<%= link_to "アバウト", about_path,class: 'btn btn-outline-secondary mx-3 my-1' %>
+　　　　<%= link_to "商品一覧", items_path,class: 'btn btn-outline-secondary mx-3 my-1' %>
+　　　　<%= link_to "新規登録",new_customer_registration_path, class: 'btn btn-outline-secondary mx-3 my-1' %>
+        <%= link_to "ログイン", new_customer_session_path,class: 'btn btn-outline-secondary mx-3 my-1' %>
       </li>
     <% end %>
   </header>
