@@ -27,8 +27,8 @@
           <%= f.select :amount,*[1..10] %>
           <%= f.submit "変更",class: "btn btn-action btn-change" %>
           <% end %></td>
-            <td><%= cart_item.subtotal %></td>
-            <td><% @total += cart_item.subtotal.to_i %></td>
+            <td><% @total +=  cart_item.subtotal %>
+              <%= cart_item.subtotal %></td>
             <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete,"data-confirm" => "本当に削除しますか？" %></td>
         </tr>
        <% end %>
@@ -36,7 +36,8 @@
     </table>
   </div>
 </div>
-<table class="table table-bordered cart_total_table">
+       <%= link_to "買い物を続ける",root_path, class: "btn btn-next" %>
+      <table class="table table-bordered cart_total_table">
         <tr>
           <th>合計金額</th>
           <td><%= @total.round.to_s(:delimited)%></td>
