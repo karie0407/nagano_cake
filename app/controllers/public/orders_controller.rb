@@ -16,9 +16,9 @@ class Public::OrdersController < ApplicationController
         order_detail.save
     end
     redirect_to orders_complete_path
-   else
+    else
      redirect_to new_order_path
-   end
+    end
   end
   def confirm
     @order = Order.new
