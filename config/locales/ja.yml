@@ -8,7 +8,6 @@
        payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
-      order:
        status:
         waiting: "入金待ち"
         payment_confirmation: "入金確認"
