@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     current_order.id = current_customer.id
-    cart_items = current_customer.cart_items
+    cart_items = current_customer.cart_item
     if order.save
       cart_items.each do |cart|
         order_detail = OrderDetail.new
@@ -23,6 +23,8 @@ class Public::OrdersController < ApplicationController
     end
   end
   def confirm
+    @total = 0
+    @cart_items=current_customer.cart_items
   if params[:order][:select_address] == "0"
   @order = Order.new(order_params)
   @order.postal_code = current_customer.postal_code
@@ -47,6 +49,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :select_address, :address_id)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
   end
 end

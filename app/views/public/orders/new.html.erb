@@ -1,6 +1,18 @@
-<h4>注文情報入力</h4>
-<strong>支払い方法</strong>
+<div class="container">
+ <div class="row">
+  <div class="col-md-8 mt-5">
+<h4 class="col-md-6"><span class="title">注文情報入力</span></h4>
+</div>
+</div>
 <%= form_with model:@order, url:orders_confirm_path, method: :post do |f| %>
+<div class="row">
+ <div class="mx-auto col-md-12 mt-3">
+<strong>支払い方法</strong>
+ </div>
+</div>
+<div class="row">
+ <div class="col-md-4">
+  <div class"continput">
 <ul>
 <li>
 <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
@@ -31,6 +43,9 @@
 </div>
 </li>
 </ul>
+  </div>
+ </div>
+</div>
 
 <strong>お届け先</strong>
 <ul>
@@ -121,5 +136,5 @@
   </div>
  </div>
 </div>
-
 <% end %>
+</div>
