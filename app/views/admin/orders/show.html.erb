@@ -1,2 +1,42 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4 class="title mt-5">注文履歴詳細</h4>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mt-3">
+      <table class="table table-borderless order-show">
+        <tr>
+          <td class="font-weight-bold">購入者</td>
+          <td><%= link_to @order.customer.full_name, admin_customer_path, class: "link_text link_border" %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">注文日</td>
+          <td><%= @order.created_at.to_s(:date_jp) %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">配送先</td>
+          <td><%= @order.postal_code.to_s.insert(3,"-") %><%= @order.address %></br>
+          <%= @order.name %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">支払方法</td>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">注文ステータス</td>
+             <td class="selectdiv">
+               <%= form_with model: @order, url: admin_order_path(@order.id), local: true do |f| %>
+               <%= f.select :status, Order.statuses_i18n.invert %>
+             </td>
+             <td>
+             <%= f.submit"更新",class: "btn btn-action offset-sm-1" %>
+             </td>
+           </div>
+           <% end %>
+           </div>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
