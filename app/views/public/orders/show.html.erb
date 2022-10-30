@@ -1,2 +1,78 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-5">
+      <h4><span class="title">注文履歴詳細</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7 mt-4">
+      <h6><strong>注文情報</strong></h6>
+      <table class="table table-bordered order_show_table">
+        <tbody>
+          <tr>
+            <th>注文日</th>
+            <td><%= @order.created_at.to_s(:date_jp) %></td>
+          </tr>
+          <tr>
+            <th>配送先</th>
+            <td style="width: 500px; line-height:1.3em">
+              〒<%= @order.postal_code.insert(3,"-") %></br>
+              <%= @order.address %></br>
+              <%= @order.name %>
+            </td>
+          </tr>
+            <tr>
+              <th>支払方法</th>
+              <td><%= @order.payment_method_i18n %></td>
+            </tr>
+            <tr>
+              <th>ステータス</th>
+              <td><%= @order.status_i18n %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 mt-4">
+      <h6><strong>請求情報</strong></h6>
+      <table class="table table-bordered order_show_table">
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td><%= @total.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <th>配送料</th>
+            <td><%= @order.shipping_cost %></td>
+          </tr>
+          <tr>
+            <th>ご請求金額</th>
+            <td><%=@total_payment %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mt-3">
+      <h6><strong>注文内容</strong></h6>
+      <table class="table table-bordered order_show_table">
+        <thead>
+          <th style="width: 400px;">商品</th>
+          <th>単価（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+        </thead>
+        <tbody>
+         <% @order_details.each do |order_detail| %>
+          <tr>
+            <td style="font-weight:normal;"><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.with_tax_price.to_i.to_s(:delimited) %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal.to_i.to_s(:delimited) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

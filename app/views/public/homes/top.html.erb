@@ -1,4 +1,6 @@
-<div class="col-md-8 col-offset-1 mt-4">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-offset-1 mt-4">
       <section class="main-visual">
         <div class="mv-content">
           <h2 class="mv-title">ようこそ、ながのCAKEへ！</h2>
@@ -9,7 +11,38 @@
           </p>
         </div>
       </section>
-      <section class="new-products mt-4">
-        <h2 class="new-products-title mb-3 color_text">新着商品</h2>
-          <div class="col-12">
-            <div class="row">
+      <section class="new-items mt-4">
+        <h2 class="new-items-title mb-3 color_text">新着商品</h2>
+         <div class="col-12">
+           <div class="row">
+             <% @items.each do |item| %>
+             <div class="card ml-3" style="width: 10em; height: 285px">
+               <%= link_to item_path(item.id) do %>
+               <%= image_tag item.get_image(100,100) %>
+               <% end %>
+               <% if item.is_active == true %>
+                <div class="card-body top_card_style_body">
+                  <h6 class="card-title border-bottom" ><strong><%= item.name %></strong></h6>
+                  <p class="text-right card-text">¥<%= item.with_tax_price.to_s(:delimited) %></p>
+                </div>
+                <div class="vard-footer top_card_style_footer">
+                  <p class="badge badge-action top_badge"><%= item.genre.name %></p>
+                </div>
+                <% else %>
+                <div class="card-footer top_card_style_body">
+                  <h6 class="card-title border-bottom" id="card_title"><strong><%=item.name %></strong></h6>
+                </div>
+                <div class="card-footer top_card_style_footer">
+                  <p class="badge badge-attention top_badge">販売停止中</p>
+                  <p class="badge badge-action top_badge"><%= item.genre.name %></p>
+                </div>
+                <% end %>
+             </div>
+             <% end %>
+           </div>
+         </div>
+      </section>
+      <p style="text-align: right;" class="mt-3"><%= link_to "すべての商品を見る＞",items_path, class: "link_text link_border" %></p>
+    </div>
+  </div>
+</div>

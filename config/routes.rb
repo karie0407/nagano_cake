@@ -27,10 +27,11 @@ Rails.application.routes.draw do
   delete '/cart_items/destroy_all' => "cart_items#destroy_all"
   post '/orders/confirm' => "orders#confirm"
   get '/orders/complete' => "orders#complete"
+  get '/orders' => "orders#index"
   resources :addresses, only: [:create, :index, :edit, :update, :destroy]
   resources :items, only: [:index, :show]
   resources :cart_items,only: [:index, :update, :destroy, :create]
-  resources :orders,only: [:new, :create, :index, :show]
+  resources :orders,only: [:new, :create, :show]
   end
   scope module: :admin do
   get '/admin' => 'homes#top'
