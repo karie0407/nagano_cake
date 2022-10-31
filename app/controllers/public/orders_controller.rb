@@ -42,8 +42,7 @@ class Public::OrdersController < ApplicationController
   @order.name = params[:order][:name]
   end
   end
-
-  def index
+  def history
   @orders =Order.all
   end
 

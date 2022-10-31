@@ -1,23 +1,33 @@
-<h4 class="head-line title_h4 text-center">マイページ</h4>
-<h4>登録情報</h4>
-<%=link_to "編集する", customers_information_edit_path %>
-<table class="my-page-table table">
-  <tbody>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1 mt-5">
+    <h4 class="col-4"><span class="title">マイページ</span></h4>
+    </div>
+  </div>
+  <div class="row ml-5">
+    <div class="col-sm-4 mt-4 d-flex flex-row mb-3 ml-5">
+    <h4><strong class="align-middle">登録情報</strong></h4>
+    <%=link_to "編集する", customers_information_edit_path, class:"btn btn-action ml-5 px-4" %>
+    </div>
+  </div>
+  <div class="row ml-5">
+    <div class="col-md-8 mt-4 ml-5">
+     <table class="table table-bordered">
+      <tr>
+       <th style="width: 200px;">氏名</th>
+       <td style="width: 528px;"><%= @customer.full_name %></td>
+      </tr>
     <tr>
-      <td class="active col-xs-3">氏名</td>
-      <td><%= @customer.last_name + @customer.first_name %></td>
+      <th sthle="width: 200px;">カナ</th>
+      <td style="width: 528px;"><%= @customer.last_name_kana + @customer.first_name_kana %></td>
     </tr>
     <tr>
-      <td class="active">カナ</td>
-      <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
+      <th style="width: 200px;">郵便番号</th>
+      <td style="width: 528px;"><%= @customer.postal_code %></td>
     </tr>
     <tr>
-      <td class="active">郵便番号</td>
-      <td><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-      <td class="active">住所</td>
-      <td><%= @customer.address %></td>
+      <th style="width: 200px;">住所</th>
+      <td style="width: 528px;"><%= @customer.address %></td>
     </tr>
     <tr>
       <td class="active">電話番号</td>
@@ -27,8 +37,10 @@
       <td class="active">メールアドレス</td>
       <td><%= @customer.email %></td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+     </table>
+    </div>
+  </div>
 <div>
   <b>配送先</b>
 </div>
@@ -39,5 +51,5 @@
   <b>注文履歴</b>
 </div>
 <div>
-<%= link_to "一覧を見る", orders_path %>
+<%= link_to "一覧を見る", orders_history_path %>
 </div>
