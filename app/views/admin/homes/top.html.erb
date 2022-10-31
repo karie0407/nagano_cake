@@ -1,11 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mt-5">
       <h4><span class="title">注文履歴一覧</span></h4>
-    </div>
   </div>
-<div class="row">
-  <div class="mx-auto col-me-12 mt-3">
+    <div class="row">
     <table class="table">
       <thead>
         <tr>
@@ -18,15 +15,14 @@
        <tbody>
        <% @orders.each do |order| %>
        <tr>
-        <td>　<%=link_to order.created_at,admin_order_path(order), class: "link_text link_border" %></td>
+        <td><%=link_to order.created_at,admin_order_path(order), class: "link_text link_border" %></td>
         <td> <%= order.name %></td>
         <td><%= order.total_amount %></td>
         <td><%= order.status_i18n %></td>
-     <% end %>
         </tr>
+        <% end %>
        </tbody>
      </table>
      <%= paginate @orders %>
     </div>
-  </div>
 </div>

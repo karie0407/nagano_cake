@@ -1,4 +1,7 @@
-商品新規登録
+<div class="container">
+  <div class="row">
+  <h4>商品新規登録</h4>
+  </div>
 <%= form_with model: @item,url: admin_items_path do |f| %>
 <p>商品画像</p>
 <%= f.file_field :image, accept: "image/*" %>
@@ -17,3 +20,4 @@
  <%= f.submit '新規登録' %>
 
 <% end %>
+</div>

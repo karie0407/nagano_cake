@@ -13,37 +13,38 @@
   <div class="row ml-5">
     <div class="col-md-8 mt-4 ml-5">
      <table class="table table-bordered">
-      <tr>
+       <tr>
        <th style="width: 200px;">氏名</th>
        <td style="width: 528px;"><%= @customer.full_name %></td>
-      </tr>
-    <tr>
-      <th sthle="width: 200px;">カナ</th>
-      <td style="width: 528px;"><%= @customer.last_name_kana + @customer.first_name_kana %></td>
-    </tr>
-    <tr>
-      <th style="width: 200px;">郵便番号</th>
-      <td style="width: 528px;"><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-      <th style="width: 200px;">住所</th>
-      <td style="width: 528px;"><%= @customer.address %></td>
-    </tr>
-    <tr>
-      <td class="active">電話番号</td>
-      <td><%= @customer.telephone_number %></td>
-    </tr>
-    <tr>
-      <td class="active">メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-    </tbody>
+       </tr>
+       <tr>
+       <th sthle="width: 200px;">カナ</th>
+       <td style="width: 528px;"><%= @customer.last_name_kana + @customer.first_name_kana %></td>
+       </tr>
+       <tr>
+       <th style="width: 200px;">郵便番号</th>
+       <td style="width: 528px;"><%= @customer.postal_code %></td>
+       </tr>
+       <tr>
+       <th style="width: 200px;">住所</th>
+       <td style="width: 528px;"><%= @customer.address %></td>
+       </tr>
+       <tr>
+       <th style="width: 100px;">電話番号</td>
+       <td style="width: 400px;"><%= @customer.telephone_number %></td>
+       </tr>
+       <tr>
+       <th style="width: 200px;">メールアドレス</th>
+       <td style="width: 528px;"><%= @customer.email %></td>
+       </tr>
      </table>
     </div>
   </div>
-<div>
-  <b>配送先</b>
-</div>
+  <div class="row ml-5">
+    <div class="col-sm-6 mt-4 d-flex flex-row mb-3 ml-5">
+  <h4 style=""><strong></strong></h4>
+    </div>
+  </div>
 <div>
 <%= link_to"一覧を見る", addresses_path %>
 </div>

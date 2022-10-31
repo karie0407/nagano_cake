@@ -1,15 +1,32 @@
-<h3>商品一覧</h3>
-
-<% @items.each do |item| %>
-<div>
-  <p>商品ID　<%= item.id %></p>
-  <p>商品名
-<%= link_to admin_item_path(item.id) do %>
-<%= item.name %>
-<% end %></p>
-  <p>税抜価格　<%= item.price %>円</p>
-  <p>ジャンル　<%= item.genre.name %></p>
-  <p>ステータス　<%= item.is_active_i18n %></p>
+<div class="container">
+<div class="row">
+  <h3>商品一覧</h3>
+  <div class="ml-auto add-product-btn mt-5">
+    <%= link_to "+", new_admin_item_path,class: "btn btn-primary btn-circle pull-right" %>
+  </div>
 </div>
-<% end %>
-<%= paginate @items %>
+<div class="row">
+   <table class="table">
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% @items.each do |item| %>
+      <tr>
+　　　 <td><%= item.id %></td>
+       <td><%= link_to item.name, admin_item_path(item.id),class: "link_text link_border" %></td>
+        <td><%= item.price %>円</td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.is_active_i18n %></td>
+     <% end %>
+   </tbody>
+   </table>
+   <%= paginate @items %>
+</div>
+</div>

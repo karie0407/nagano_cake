@@ -1,2 +1,68 @@
-@import '~bootstrap/scss/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.text-action {
+  color: #468966;
+}
+
+.text-next {
+  color: #3E879E;
+}
+
+.text-attention {
+  color: #A61717;
+}
+
+.btn-action {
+  color: #fafafa;
+  background: #468966;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-action:hover {
+  color: #fafafa;
+  background: #316148;
+}
+
+.btn-next {
+  color: #fafafa;
+  background: #3E879E;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+.btn-next:hover {
+  color: #fafafa;
+  background: #2a6173;
+}
+
+.btn-attention {
+  color: #fafafa;
+  background: #A61717;
+  border: 3px solid #eee;
+  border-radius: 25px;
+}
+
+
+.btn-attention:hover {
+  color: #fafafa;
+  background: #7d1111;
+}
+
+.badge-action{
+ background-color: #468966;
+ color: #fff;
+}
+
+.badge-attention{
+ background-color: #A61717;
+ color: #fff;
+}
