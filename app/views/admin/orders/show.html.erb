@@ -31,7 +31,7 @@
                   <div class="selectdiv">
                   <%= f.select :status, Order.statuses_i18n.invert %>
                   </div>
-                <%= f.submit"更新",class: "btn btn-action offset-sm-1" %>
+                <%= f.submit"更新",class: "btn btn-success offset-sm-1" %>
                 </div>
               <% end %>
            </div>
@@ -59,7 +59,7 @@
              <td class="text-right align-middle subtotal"><%= order_detail.subtotal.to_s(:delimited) %></td>
              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
              <td class="text-center align-middle selectdiv"><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
-             <td class="text-center alin-middle" id="update-btn"><%= f.submit "更新",class: "btn btn-action update-btn" %></td>
+             <td class="text-center alin-middle" id="update-btn"><%= f.submit "更新",class: "btn btn-success update-btn" %></td>
              <% end %>
            </tr>
            <% end %>
