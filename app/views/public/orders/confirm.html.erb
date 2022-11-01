@@ -76,7 +76,7 @@
   </div>
   <div class="row mt-3">
     <div class="col-md-12 text-center">
-      <%= form_with model:@order, url: orders_path, local: true do |f| %>
+      <%= form_with model:@order, url: orders_path, method: :post do |f| %>
       <%= f.hidden_field :customer_id %>
        <%= f.hidden_field :name %>
        <%= f.hidden_field :address %>
@@ -85,7 +85,7 @@
        <%= f.hidden_field :shipping_cost %>
        <%= f.hidden_field :total_payment,value: @total_payment %>
        <%= f.hidden_field :status,value: "waiting" %>
-       <%= f.submit "注文を確定する", class:"btn btn-action btn-lg" %>
+       <%= f.submit "注文を確定する", class:"btn btn-success btn-lg" %>
        <% end %>
     </div>
   </div>

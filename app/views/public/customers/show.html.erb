@@ -7,7 +7,7 @@
   <div class="row ml-5">
     <div class="col-sm-4 mt-4 d-flex flex-row mb-3 ml-5">
     <h4><strong class="align-middle">登録情報</strong></h4>
-    <%=link_to "編集する", customers_information_edit_path, class:"btn btn-action ml-5 px-4" %>
+    <%=link_to "編集する", customers_information_edit_path, class:"btn btn-success ml-5 px-4" %>
     </div>
   </div>
   <div class="row ml-5">
@@ -41,16 +41,15 @@
     </div>
   </div>
   <div class="row ml-5">
-    <div class="col-sm-6 mt-4 d-flex flex-row mb-3 ml-5">
-  <h4 style=""><strong></strong></h4>
-    </div>
+  <div class="col-sm-6 mt-4 d-flex flex-row mb-3 ml-5">
+  <h5 style="width: 100px;"><strong class="align-middle">配送先</strong></h5>
+  <%= link_to"一覧を見る", addresses_path, class:"btn btn-primary" %>
   </div>
-<div>
-<%= link_to"一覧を見る", addresses_path %>
-</div>
-<div>
-  <b>注文履歴</b>
-</div>
-<div>
-<%= link_to "一覧を見る", orders_history_path %>
+  </div>
+  <div class="row ml-5">
+  <div class="col-sm-6 mt-4 d-flex flex-row mb-3 ml-5">
+  <h5 style="width: 100px;"><strong class="align-middle">注文履歴</strong></h5>
+　　<%= link_to "一覧を見る", orders_history_path, class:"btn btn-primary" %>
+  </div>
+  </div>
 </div>

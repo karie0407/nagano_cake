@@ -1,9 +1,32 @@
-<h4>商品一覧(全<%=@items.count %>件)</h4>
-<% @items.each do |item| %>
-<%= link_to item_path(item.id) do %>
-<%= image_tag item.get_image(100,100) %>
-<% end %>
-<%= item.name %>
-¥<%= (item.price * 1.1).floor %>
-<% end %>
-<%= paginate @items %>
+<div class="container">
+  <div class="row">
+    <div class="col-9 d-flex flex-wrap mt-4 h-100">
+    <h4>商品一覧(全<%=@items.count %>件)</h4>
+    </div>
+  </div>
+   <% @items.each do |item| %>
+   <div class="card ml-3 mb-5" style="width: 11rem; height: 250px;">
+   <%= link_to item_path(item.id) do %>
+  <%= image_tag item.get_image(100,100) %>
+   <% end %>
+   <% if item.is_active == true %>
+    <div class="card-body">
+    <h6 class="card-title border-bottom" id="card_title"><strong><%= item.name %></strong></h6>
+    <p class="text-right card-text">¥<%= item.with_tax_price.to_s(:demlimited) %></p>
+    </div>
+    <div class="vard-footer top_card_style_footer">
+    <p class="badge badge-action"><%= item.genre.name %></p>
+    </div>
+    <% else %>
+    <div class="card-footer top_card_style_body">
+    <h6 class="card-title border-bottom" id="card_title"><strong><%=item.name %></strong></h6>
+    </div>
+    <div class="card-footer top_card_style_footer">
+    <p class="badge badge-attention">販売停止中</p>
+    <p class="badge badge-action"><%= item.genre.name %></p>
+    </div>
+    <% end %>
+     </div>
+  <% end %>
+ <%= paginate @items %>
+</div>

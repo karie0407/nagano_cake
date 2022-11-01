@@ -1,9 +1,35 @@
-<h3><strong><%= @item.name %></strong></h3>
-<%= image_tag @item.get_image(100,100) %>
-<%= @item.introduction %>
-¥<%= (@item.price * 1.1).floor %>
-<%= form_with model:@cart_item, url:cart_items_path, local: true do |f| %>
-<%= f.hidden_field :item_id, :value => @item.id %>
-<%= f.select :amount, *[1..10] %>
-<%= f.submit "カートに入れる", class: "btn-sm btn-primary" %>
-<% end %>
+<div class="container">
+ <div class="rpw">
+   <div class="col-md-3 mt-4">
+    </div>
+  <div class="cp;-md-4 mt-4 text-center">
+    <%= image_tag @item.get_image(100,100) %>
+  </div>
+  <div coass="col-md-5 mt-4 pl-5 text-right">
+     <div class="row">
+     <h4><strong><%= @item.name %></strong></h4>
+     </div>
+  <div class="row item_info">
+    <h5><%= @item.introduction %></h5>
+  </div>
+  <div class="row mb-2">
+   <h5>¥<%= (@item.price * 1.1).floor %><span>(税込)</span></h5>
+   </div>
+   <% if @item.is_active == true %>
+    <%= form_with model:@cart_item, url:cart_items_path, local: true do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <div class="row">
+      <div class="selectdiv ml-2" id="item-selectdiv">
+      <%= f.select :amount, *[1..10] %>
+      </div>
+      <div class="d-flex align-items-center ml-5">
+      <%= f.submit "カートに入れる", class: "btn-sm btn-primary" %>
+      </div>
+    </div>
+   <% end %>
+  <% else %>
+    <h5>販売停止中</h5>
+  <% end %>
+   </div>
+ </div>
+</div>

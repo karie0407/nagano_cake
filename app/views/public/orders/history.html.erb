@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div claww="col-md-8 col-nd-offeset-2 ml-5 mt-5">
-      <h4 class="col-4"><span class="title">注文履歴一覧</span></h4>
+    <div class="col-md-8 col-nd-offeset-2 ml-5 mt-5">
+      <h4><span class="title">注文履歴一覧</span></h4>
     </div>
   </div>
   <div class="row">
@@ -35,7 +35,7 @@
             <td>
               <%= order.total_payment %>円</td>
               <td><%= order.status_i18n %></td>
-              <td><%= link_to "表示する", order_path(order.id), class:"btn btn-text" %></td>
+              <td><%= link_to "表示する", order_path(order.id), class:"btn btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>

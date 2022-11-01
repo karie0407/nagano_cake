@@ -16,27 +16,27 @@
          <div class="col-12">
            <div class="row">
              <% @items.each do |item| %>
-             <div class="card ml-3" style="width: 10em; height: 285px">
+             <div class="card ml-3" style="width: 10em; height: 258px">
                <%= link_to item_path(item.id) do %>
                <%= image_tag item.get_image(100,100) %>
                <% end %>
                <% if item.is_active == true %>
                 <div class="card-body top_card_style_body">
                   <h6 class="card-title border-bottom" ><strong><%= item.name %></strong></h6>
-                  <p class="text-right card-text">¥<%= item.with_tax_price.to_s(:delimited) %></p>
+                  <p class="text-right card-text">¥<%= item.with_tax_price %></p>
                 </div>
                 <div class="vard-footer top_card_style_footer">
                   <p class="badge badge-action top_badge"><%= item.genre.name %></p>
                 </div>
-                <% else %>
+               <% else %>
                 <div class="card-footer top_card_style_body">
-                  <h6 class="card-title border-bottom" id="card_title"><strong><%=item.name %></strong></h6>
+                <h6 class="card-title border-bottom" id="card_title"><strong><%=item.name %></strong></h6>
                 </div>
                 <div class="card-footer top_card_style_footer">
                   <p class="badge badge-attention top_badge">販売停止中</p>
                   <p class="badge badge-action top_badge"><%= item.genre.name %></p>
                 </div>
-                <% end %>
+               <% end %>
              </div>
              <% end %>
            </div>
