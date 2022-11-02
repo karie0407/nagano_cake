@@ -1,15 +1,18 @@
 <div class="container">
-  <div class="row">
-    <div class="col-9 d-flex flex-wrap mt-4 h-100">
+ <div class="col-9 d-flex flex-wrap mt-4 h-100">
     <h4>商品一覧(全<%=@items.count %>件)</h4>
     </div>
+  <div class="row">
+   <div class="col-md-3 mt-4">
+    <%= render "public/items/genre", genres: @genres %>
+   </div>
   </div>
    <% @items.each do |item| %>
    <div class="card ml-3 mb-5" style="width: 11rem; height: 250px;">
    <%= link_to item_path(item.id) do %>
   <%= image_tag item.get_image(100,100) %>
    <% end %>
-   <% if item.is_active == true %>
+   <% if item.is_active == "sale" %>
     <div class="card-body">
     <h6 class="card-title border-bottom" id="card_title"><strong><%= item.name %></strong></h6>
     <p class="text-right card-text">¥<%= item.with_tax_price.to_s(:demlimited) %></p>

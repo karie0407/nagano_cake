@@ -2,15 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //------home--------//
-
 .main-visual {
-  background-image: url(cake.jpg);
-  background-position: center;
+  background-position: 40px 80px;
   height: 400px;
   width: 100%;
   text-align: center;
+}
   .mv-content {
-    background-color:rgba(255,255,255,0.6);
     height: 400px;
     padding-top: 120px;
   }
@@ -24,7 +22,6 @@
     color : black;
     margin-top: 40px;
   }
-}
 
   .top_card_img{
     height: 140px;
@@ -49,13 +46,15 @@
 
   .top_badge{
     margin-bottom: 10px;
+    padding: 10px;
   }
 
 
 
 //-------about--------//
 .about-title {
-
+  font-family: 'Hina Mincho', serif;
+  font-weight: bold;
 }
 .about-content {
   text-align: center;

@@ -1,6 +1,10 @@
 class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :item
+  validates :price, presence: true
+  validates :amount, presence: true
+  validates :with_tax_price, presence: true
+
   def subtotal
   item.with_tax_price * amount
   end

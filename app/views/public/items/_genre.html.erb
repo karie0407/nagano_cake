@@ -1,0 +1,11 @@
+<div class="offset-ml-2">
+	<div class="row mx-left list-group" style="width: 200px; height: 500px;">
+		<ul class="sidebar">
+			<p class="list-group-item list-group-item-action disabled genre_title"><strong>ジャンル検索</strong></p>
+			<%= link_to "すべての商品", items_path, class: "list-group-item list-group-item-action text-center color_text" %>
+		  <% genres.each do |genre| %>
+			<%= link_to genre.name, items_path(genre_id: genre.id), class: "list-group-item list-group-item-action text-center color_text" %>
+			<% end %>
+		</ul>
+	</div>
+</div

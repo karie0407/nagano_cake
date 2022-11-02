@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+ before_action :move_to_signed_in
+
  def new
   @genre = Genre.new
  end
@@ -11,19 +13,26 @@ class Admin::GenresController < ApplicationController
   @genres= Genre.all
   @genre= Genre.new
  end
- 
+
  def edit
   @genre = Genre.find(params[:id])
  end
- 
+
    def update
     genre = Genre.find(params[:id])
     genre.update(genre_params)
     redirect_to admin_genres_path
    end
-end
- private
+
+
+   private
 
   def genre_params
     params.require(:genre).permit(:name)
   end
+  def move_to_signed_in
+      unless admin_signed_in?
+        redirect_to root_path
+      end
+  end
+end
