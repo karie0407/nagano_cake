@@ -1,3 +1,4 @@
+<% if @cart_items.present? %>
 <div class= "row">
   <div class="col-md-8 mt-5">
 <h4>ショッピングカート</h4>
@@ -44,8 +45,27 @@
       </table>
       <%= link_to "買い物を続ける",root_path, class: "btn btn-primary" %>
   </div>
-  <div class="row">
+<div class="row">
     <div class="col-md-3 mx-auto mt-5">
       <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success" %>
     </div>
   </div>
+  <% else %>
+<div class="row">
+  <div class="col-md-8 mt-5">
+   <h5 class="col-md-6"><span class="title">ショッピングカート</span></h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <h5 class="text-center">ショッピングカートに商品が登録されていません。</h5>
+    <p class="text-center">『買い物を続ける』ボタンから、</br>
+    商品を選択して、カートに追加してください。</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <%= link_to "買い物を続ける", root_path, class: "btn btn-primary btn-lg d-block" %>
+  </div>
+</div>
+<% end %>

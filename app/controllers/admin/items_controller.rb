@@ -6,16 +6,24 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-    redirect_to admin_items_path
+    redirect_to admin_item_path(@item.id)
     else
       render :new
     end
   end
   def index
-  @items= Item.page(params[:page]).per(10)
+  @genres = Genre.all
+  if params[:genre_id]
+    @genre = Genre.find(params[:genre_id])
+    @items = Item.where(genre_id:@genre.id).page(params[:page]).per(4).order(created_at: :desc)
+  else
+  @items= Item.page(params[:page]).per(4).order(created_at: :desc)
+  end
   end
   def show
   @item = Item.find(params[:id])
+  @cart_item =CartItem.new
+  @genres = Genre.all
   end
 
   def edit

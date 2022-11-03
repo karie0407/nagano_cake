@@ -10,7 +10,7 @@
       </p>
     <div class="btn-out mt-4">
       <%= link_to "退会しない",customers_my_page_path, class: "btn btn-primary mr-5 mt-3 col-md-4" %>
-     <%= link_to "退会する",customers_withdraw_path, method: :patch, class: "btn btn-danger mt-3 col-md-4" %>
+     <%= link_to "退会する",customers_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？",class: "btn btn-danger mt-3 col-md-4" %>
     </div>
    </div>
  </div>

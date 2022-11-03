@@ -10,10 +10,10 @@ class Public::OrdersController < ApplicationController
     if order.save
       current_customer.cart_items.each do |cart|
         order_detail = OrderDetail.new
-        order_detail.item_id = cart.item_id
+        order_detail.item_id = cart.item.id
         order_detail.order_id = order.id
         order_detail.amount = cart.amount
-        order_detail.price  =  cart.item.with_tax_price
+        order_detail.price  =  cart.subtotal.to_s
         order_detail.save
     end
     current_customer.cart_items.destroy_all
@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
   end
   end
   def history
-  @orders =Order.all
+  @orders =current_customer.orders.all
   end
 
   def show

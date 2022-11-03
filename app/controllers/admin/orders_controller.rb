@@ -4,6 +4,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total = @order_details.inject(0) { |sum, item| sum + item.subtotal }
+    @orders = @total + @order.shipping_cost
   end
   def update
     order = Order.find(params[:id])

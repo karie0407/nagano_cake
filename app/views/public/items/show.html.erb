@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ml-2 mt-5 mr-10">
  <div class="row">
    <div class="col-md-3 mt-4">
     <%= render 'public/items/genre', genres: @genres %>
@@ -9,21 +9,21 @@
     <%= image_tag @item.get_image(200,200) %>
   </div>
   </div>
-  <div coass="col-md-5 mt-4 mr-4 pl-5 align-right">
-     <div class="row">
+  <div coass="col-md-5 mt-4 mr-4 ml-4 pl-5">
+     <div class="row mr-2">
      <strong><%= @item.name %></strong></br>
       <%= @item.introduction %>
      </div>
-     <h6>¥<%= (@item.price * 1.1).floor %><span>(税込)</span></h6>
+     <div class="col-ml-5 mr-2"><h6>¥<%= (@item.price * 1.1).floor %>(税込)</h6></div>
      <% if @item.is_active == "sale" %>
     <%= form_with model:@cart_item, url:cart_items_path, local: true do |f| %>
     <%= f.hidden_field :item_id, :value => @item.id %>
-      <div class="row text-right">
-      <div class="selectdiv ml-2" id="item-selectdiv">
+      <div class="row">
+      <div class="selectdiv ml-5" id="item-selectdiv">
       <%= f.select :amount, *[1..10] %>
       </div>
       <div class="row">
-      <div class="d-flex align-items-center ml-5">
+      <div class="d-flex align-items-center ml-4">
       <%= f.submit "カートに入れる", class: "btn-sm btn-primary" %>
       </div>
       </div>

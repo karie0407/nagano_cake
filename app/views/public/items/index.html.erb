@@ -1,5 +1,4 @@
 <div class="container">
- <div class="col-9 d-flex flex-wrap mt-4 h-100">
     <h4>商品一覧(全<%=@items.count %>件)</h4>
     </div>
   <div class="row">
@@ -7,8 +6,9 @@
     <%= render "public/items/genre", genres: @genres %>
    </div>
   </div>
+   <div class="col-9 d-flex flex-wrap mt-4 h-100">
    <% @items.each do |item| %>
-   <div class="card ml-3 mb-5" style="width: 11rem; height: 250px;">
+   <div class="card ml-2 mb-4" style="width: 11rem; height: 250px;">
    <%= link_to item_path(item.id) do %>
   <%= image_tag item.get_image(100,100) %>
    <% end %>

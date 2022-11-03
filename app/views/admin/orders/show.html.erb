@@ -57,8 +57,8 @@
              <td class="text-right align-middle tax"><%= order_detail.item.with_tax_price %></td>
              <td class="text-center align-middle"><%= order_detail.amount %></td>
              <td class="text-right align-middle subtotal"><%= order_detail.subtotal.to_s(:delimited) %></td>
-             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-             <td class="text-center align-middle selectdiv"><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
+             <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+             <td class="text-center align-middle selectdiv"><%= f.select :status, Order.statuses_i18n.invert %></td>
              <td class="text-center alin-middle" id="update-btn"><%= f.submit "更新",class: "btn btn-success update-btn" %></td>
              <% end %>
            </tr>
@@ -79,7 +79,7 @@
         </tr>
         <tr>
           <td class="font-weight-bold">請求額合計</td>
-          <td class="text-right font-weight-bold order-total-td"><%=@order.total_payment.to_s(:delimited) %>円</td>
+          <td class="text-right font-weight-bold order-total-td"><%=@orders.to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
